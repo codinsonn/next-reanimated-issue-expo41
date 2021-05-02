@@ -18,7 +18,8 @@ $ yarn next-expo -c -f
 <details>
     <summary>Show -c chosen options</summary>
 
-    // TODO: Add screenshot
+![chosen next-expo options](https://user-images.githubusercontent.com/5967956/116798187-5a118200-aaed-11eb-94fa-c155d4091904.png "Screenshot 2021-05-02 at 02 16 22")
+
 </details>
 
 ## 3. Run `next dev` to update initial tsconfig.json
@@ -32,7 +33,8 @@ $ yarn dev
 <details>
     <summary>Show error screenshot</summary>
     
-    // TODO: Add screenshot
+<img width="1238" alt="Screenshot 2021-05-02 at 01 32 01" src="https://user-images.githubusercontent.com/5967956/116798195-744b6000-aaed-11eb-9cc2-70cec890c2db.png">
+
 </details>
 
 This is, ofcourse, easily fixed by adding the babel plugin manually in the next step
@@ -60,37 +62,6 @@ This solves issue 1.
 ## 5. Rename pages from `.js` to `.ts`
 
 ```bash
-mv pages/_document.js pages/_document.ts
-mv pages/index.js pages/index.ts
+mv pages/_document.js pages/_document.tsx
+mv pages/index.js pages/index.tsx
 ```
-
-This causes a second build issue in `pages/index.ts`: `Syntax error: Unexpected token, expected ","`
-
-<details>
-    <summary>Show error screenshots</summary>
-    // TODO: Add screenshots
-</details>
-
-> The issue might be with next itself in this case, but it does come as a surprise since AFAIK typescript is supported in both next & expo, and next-adapter provides react-native-web support
-
-<details>
-    <summary>Show `tsconfig.json` at this point</summary>
-
-```json
-{
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "isolatedModules": true,
-    "jsx": "preserve"
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
-}
-```
-</details>
